@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styledocumentos.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Gestión de Documentos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+
+    <div class="banner">
+        <img src="IMAGENES/LOGOUDES.png" alt="">
+        <h1>GENESIS PLUS</h1>
+        <h3>Sistema de gestión de estudiantes</h3>
+        <h4>Cúcuta Semestre 2024B</h4>
+    </div>
+
+
+</head>
+<body>
+    <ul class="menu">
+        <li><a href="indexhome.html"><i class='bx bxs-home-alt-2'></i></a></li>
+        <li><a href="#">Transmites academicos</a></li>
+        <li><a href="#">Record de notas</a></li>
+        <li><a href="#">Plan de estudio</a></li>
+        <li><a href="#">Matricula</a></li>
+        <li><a href="#">Horario</a></li>
+        <li><a href="#">Notas</a></li>
+        <li><a href="indexconfiguracion.html">Configuracion</a></li>
+        <li><a href="#"><i class='bx bx-bell' ></i></a></li>
+        <li><a href="indexperfil.html"><i class='bx bxs-user' >NOMBRE</i></a></li>
+    </ul>
+
+
+    <h1>Gestión de Documentos</h1>
+    <table>
+        <thead>
+            <tr>
+                
+                <th>Tipo de Documento</th>
+                <th>Estado</th>
+                <th>Cargar Documento</th>
+            </tr>
+        </thead>
+        <tbody id="documentTable">
+            <tr>
+
+                <td>Cedula</td>
+                <td id="doc1-status">No cargado</td>
+                <td>
+                    <input type="file" id="doc1-input">
+                    <button onclick="uploadDocument('doc1')">Cargar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Seguro medico</td>
+                <td id="doc2-status">No cargado</td>
+                <td>
+                    <input type="file" id="doc2-input">
+                    <button onclick="uploadDocument('doc2')">Cargar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Documento 3</td>
+                <td id="doc3-status">No cargado</td>
+                <td>
+                    <input type="file" id="doc3-input">
+                    <button onclick="uploadDocument('doc3')">Cargar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="cuadrodatos">
+        <h5>información Académica</h5>
+        <table>
+            <thead>
+                <th>Concepto</th>
+                <th>Valor</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Promedio</td>
+                    <td>3.88</td>
+                </tr>
+                <tr>
+                    <td>Semestre</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Activo académico</td>
+                    <td>SI</td>
+                </tr>
+            </tbody>
+
+
+        </table>
+
+
+
+    </div>
+    
+    <div class="noticias">
+
+        <table>
+            <thead>
+                <th>Noticias         0</th> 
+            </thead>
+            <tbody>
+                <td>No hay noticias nuevas</td>
+
+                </tbody>
+        </table>
+    </div>
+
+
+
+</body>
+<footer>
+    <div class="legal"></div>
+    <p>Universidad de Santander - Sistemas de información</p>
+    <p>Todos los derechos reservados © 2016</p>
+    <p>Institución de Educación Superior sujeta a la inspección y vigilancia del Ministerio de Educación Nacional  </p>
+</footer>
+<script>
+    function uploadDocument(docId) {
+        const input = document.getElementById(`${docId}-input`);
+        const status = document.getElementById(`${docId}-status`);
+
+        if (input.files.length === 0) {
+            alert('Por favor, selecciona un archivo para cargar.');
+            return;
+        }
+
+        // Simulación de carga
+        const fileName = input.files[0].name;
+        status.textContent = `Cargado: ${fileName}`;
+        input.value = ""; // Limpiar el input
+    }
+</script>
+
+
+
+
+
+</html>
