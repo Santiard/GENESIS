@@ -41,8 +41,7 @@ data class Clase(
     @Column(nullable = false)
     var hours : Int? = null,
 
-    @Column(nullable = false)
-    var hours : Int? = null,
+
 
     @JoinTable(
         name = "subject_program",
@@ -52,4 +51,11 @@ data class Clase(
     val prerequisites: List<Program> = listOf(),// Relación con otras materias
 
 
-)
+    @ManyToMany
+    @JoinTable(
+        name = "subject_student",
+        joinColumns = [JoinColumn(name = "subject_id")],
+        inverseJoinColumns = [JoinColumn(name = "student_id")]
+    )
+    val prerequisites: List<Student> = listOf(),// Relación con otras materias
+    )
