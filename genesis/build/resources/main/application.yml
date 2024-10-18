@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: genesis
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/genesis
+    username: root
+    password: Halo1234
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8080
+  error:
+    include-stacktrace: never
