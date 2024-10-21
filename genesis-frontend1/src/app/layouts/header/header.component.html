@@ -1,0 +1,34 @@
+<header class="flex justify-between">
+  <img src="/logo_udes.png" alt="Logo" />
+  <div class="flex flex-col text-right text-udes-gray-500">
+    <p class="text-udes-blue-900 text-4xl py-2.5">Génesis</p>
+    <p class="text-xl">Sistema de gestión estudiantes</p>
+    <p>Cúcuta Semestre 2024B</p>
+  </div>
+</header>
+<nav class="w-full shadow shadow-udes-gray-400 mt-2 rounded">
+  @if (authService.account != null) {
+    <ul class="flex py-3">
+      <li
+        class="py-2 px-4 hover:bg-udes-gray-200 rounded"
+        (click)="dashboard()"
+      >
+        Inicio
+      </li>
+      <li class="py-2 px-4">Documentación</li>
+      <li class="py-2 px-4">Tutoriales</li>
+      <li class="py-2 px-4">
+        Bienvenido {{ authService.account.user.firstName }}
+      </li>
+      <li class="py-2 px-4 hover:bg-udes-gray-200 rounded">Cerrar sesión</li>
+    </ul>
+  } @else {
+    <ul class="flex py-3">
+      <li class="py-2 px-4 hover:bg-udes-gray-200 rounded" (click)="logout()">
+        Inicio
+      </li>
+      <li class="py-2 px-4">Documentación</li>
+      <li class="py-2 px-4">Tutoriales</li>
+    </ul>
+  }
+</nav>

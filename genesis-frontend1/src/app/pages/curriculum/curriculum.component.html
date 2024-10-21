@@ -1,0 +1,46 @@
+<section
+  class="flex flex-col gap-5 justify-between bg-white shadow shadow-udes-gray-600 w-full p-5 rounded"
+>
+  <h2 class="text-2xl text-center">Plan de Estudio</h2>
+  <div class="flex justify-between">
+    <p>
+      <span class="font-bold">Programa: </span
+      >{{ authService.account.program.name }}
+    </p>
+    <p><span class="font-bold">Semestres: </span>{{ semesterNumber }}</p>
+  </div>
+
+  @for (
+    nothing of [].constructor(semesterNumber);
+    track idx;
+    let idx = $index
+  ) {
+    <details>
+      <summary
+        class="text-lg font-bold bg-udes-gray-200 rounded px-3 py-2 shadow shadow-udes-gray-600"
+      >
+        Semestre {{ idx + 1 }}
+      </summary>
+      <table class="w-full">
+        <thead class="bg-udes-blue-700 text-white">
+          <tr>
+            <th class="text-left">Código</th>
+            <th class="text-left">Materia</th>
+            <th class="text-left">Créditos</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of list; track idx2; let idx2 = $index) {
+            @if (item.semester === idx + 1) {
+              <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.credits }}</td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </details>
+  }
+</section>

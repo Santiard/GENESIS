@@ -1,0 +1,86 @@
+<div class="grid grid-cols-6 grid-rows-5 gap-5">
+  <!-- Sección de Bienvenida -->
+  <div class="col-span-4 row-span-3 shadow-lg bg-white p-6 rounded">
+    <h1 class="text-3xl font-bold mb-4 text-udes-gray-800">
+      Bienvenido a Génesis.
+    </h1>
+    <p class="text-udes-gray-600 mb-4">
+      Génesis es el sistema para gestión de servicios estudiantiles tales como
+      Matrícula, Horarios, Plan de estudios, Calificaciones y Certificados,
+      entre otros. Está construido por la Universidad de Santander con
+      tecnologías Web de punta y optimizado para la gestión de grandes
+      cantidades de datos.
+    </p>
+    <p class="text-udes-gray-600 mb-4">
+      Génesis se integra con la aplicación para la gestión de Horarios (Master),
+      con la aplicación para la gestión de servicios docentes (Galileo) y con la
+      aplicación para la gestión de servicios de Registro y Control Académico
+      (Davinci). Estas aplicaciones conforman el sistema integral de gestión
+      académica (SIGA).
+    </p>
+  </div>
+
+  <!-- Sección Adicional -->
+  <div
+    class="col-span-4 row-span-2 col-start-1 row-start-4 shadow-lg bg-white p-5 rounded h-fit"
+  >
+    <p class="text-udes-gray-600">
+      Para inscribirse como aspirante haga
+      <a
+        class="text-udes-blue-500 hover:text-udes-blue-700 underline"
+        >clic aquí</a
+      >
+    </p>
+  </div>
+
+  <!-- Formulario de ingreso de estudiantes -->
+  <div
+    class="col-span-2 row-span-5 col-start-5 row-start-1 shadow-lg bg-white p-6 rounded h-fit"
+  >
+    <h2 class="text-xl font-bold mb-4 text-udes-gray-800">
+      Ingreso de estudiantes
+    </h2>
+    <div>
+      <div class="mb-4">
+        <label for="usuario" class="block text-udes-gray-700">Usuario</label>
+        <input
+          [(ngModel)]="code"
+          id="usuario"
+          type="text"
+          class="w-full p-2 border border-udes-gray-300 rounded mt-1 focus:outline-1 focus:outline-udes-blue-400 hover:border-udes-blue-400 transition-colors duration-300"
+          placeholder="Usuario"
+        />
+      </div>
+      <div class="mb-4">
+        <label for="contrasena" class="block text-udes-gray-700"
+          >Contraseña</label
+        >
+        <input
+          [(ngModel)]="password"
+          id="contrasena"
+          type="password"
+          class="w-full p-2 border border-udes-gray-300 rounded mt-1 focus:outline-1 focus:outline-udes-blue-400 hover:border-udes-blue-400 transition-colors duration-300"
+          placeholder="Contraseña"
+        />
+      </div>
+      <button
+        (click)="login()"
+        type="submit"
+        class="w-full bg-udes-blue-500 text-white p-2 rounded hover:bg-udes-blue-600"
+      >
+        Ingresar
+      </button>
+    </div>
+    <a href="#" class="text-udes-blue-500 underline mt-3 block"
+      >Restaurar contraseña</a
+    >
+    <p class="text-sm text-udes-gray-600 mt-3">
+      Para obtener la última versión de Génesis, recomendamos borrar caché de su
+      navegador o presione Ctrl+R.
+    </p>
+    <div class="mt-3">
+      <a href="#" class="text-udes-blue-500 underline">Tutoriales</a> •
+      <a href="#" class="text-udes-blue-500 underline">Manuales</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<section
+  class="flex flex-col gap-5 justify-between gap-10 bg-white shadow shadow-udes-gray-600 w-full p-5 rounded"
+>
+  <h2 class="text-2xl">Documentos Pendientes</h2>
+  <h2 class="text-2xl text-center">Nombre de la persona</h2>
+
+  <table class="w-full table border-2 rounded overflow-hidden">
+    <thead class="bg-udes-blue-700 text-white">
+      <th class="border border-white">Código</th>
+      <th class="border border-white">Identificación</th>
+      <th class="border border-white">Email</th>
+    </thead>
+    <tbody>
+      <tr class="text-center">
+        <td>{{ authService.account.code }}</td>
+        <td>{{ authService.account.user.document }}</td>
+        <td>{{ authService.account.user.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="w-full table rounded overflow-hidden">
+    <thead class="bg-udes-blue-700 text-white">
+      <th class="border border-white" colspan="2">Documentos Pendientes</th>
+    </thead>
+    <tbody class="border border-udes-gray-600">
+      <tr>
+        <td class="border border-udes-gray-600 font-bold">
+          PRUEBAS SABER 11(OPCIONAL INSCRIPCIÓN Y REQUERIDO PARA MATRÍCULA
+          ACADÉMICA).NO APLICA PARA MEDICINA
+        </td>
+        <td class="flex justify-between">
+          <input
+            type="file"
+            (change)="onFileSelected($event, 1)"
+            accept="application/pdf"
+          />
+          @if (authService.account.icfes != null) {
+            <button
+              (click)="onFileDownload(1)"
+              class="bg-udes-blue-500 text-white p-2 rounded hover:bg-udes-blue-600"
+            >
+              Descargar
+            </button>
+          }
+        </td>
+      </tr>
+      <tr class="border border-udes-gray-600">
+        <td class="border border-udes-gray-600 font-bold">
+          ACTA DE GRADO (DOCUMENTO OPCIONAL PARA INSCRIPCIÓN, REQUERIDO PARA
+          MATRÍCULA ACADÉMICA)
+        </td>
+        <td class="flex justify-between">
+          <input type="file" (change)="onFileSelected($event, 2)" />
+          @if (authService.account.record != null) {
+            <button
+              (click)="onFileDownload(2)"
+              class="bg-udes-blue-500 text-white p-2 rounded hover:bg-udes-blue-600"
+            >
+              Descargar
+            </button>
+          }
+        </td>
+      </tr>
+      <tr class="border border-udes-gray-600">
+        <td class="border border-udes-gray-600 font-bold">
+          DIPLOMA BACHILLER (OPCIONAL PARA INSCRIPCIÓN, REQUERIDO PARA MATRÍCULA
+          ACADÉMICA
+        </td>
+        <td class="flex justify-between">
+          <input type="file" (change)="onFileSelected($event, 3)" />
+          @if (authService.account.certificate != null) {
+            <button
+              (click)="onFileDownload(3)"
+              class="bg-udes-blue-500 text-white p-2 rounded hover:bg-udes-blue-600"
+            >
+              Descargar
+            </button>
+          }
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,29 @@
+<div class="bg-white shadow shadow-udes-gray-600 w-full p-5 rounded">
+  <p class="font-bold">Información Académica</p>
+  <table class="w-full table border-2 rounded overflow-hidden">
+    <thead class="bg-udes-blue-700 text-white">
+      <th class="border border-white">Concepto</th>
+      <th class="border border-white">Valor</th>
+    </thead>
+    <tbody>
+      <tr class="bg-udes-blue-100">
+        <td class="border border-udes-gray-200">Promedio</td>
+        <td class="text-center border border-udes-gray-200">{{ average }}</td>
+      </tr>
+      <tr>
+        <td class="border border-udes-gray-200">Semestre</td>
+        <td class="text-center border border-udes-gray-200">{{ semester }}</td>
+      </tr>
+      <tr class="bg-udes-blue-100">
+        <td class="border border-udes-gray-200">Activo Academicamente</td>
+        <td class="text-center border border-udes-gray-200">
+          @if (payed) {
+            ✅
+          } @else {
+            ❌
+          }
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

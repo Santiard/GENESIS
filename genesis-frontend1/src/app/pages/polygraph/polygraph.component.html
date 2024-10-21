@@ -1,0 +1,62 @@
+<section
+  class="flex flex-col gap-5 justify-between bg-white shadow shadow-udes-gray-600 w-full p-5 rounded"
+>
+  <h2 class="text-2xl">Poligrafo de Notas</h2>
+  <div class="flex w-full justify-between">
+    <div class="flex flex-col rounded overflow-hidden">
+      <div class="bg-udes-blue-800 text-white py-3 px-10">Período</div>
+      @for (item of semesterList; track idx; let idx = $index) {
+        <div
+          class="bg-white hover:bg-udes-gray-100 text-udes-blue-800 py-3 px-10 border border-udes-gray-300"
+          (click)="onSemesterClick(item)"
+        >
+          {{ item.year }}-{{ item.period }}
+        </div>
+      }
+    </div>
+    <div class="flex w-[85%]">
+      @if (semesterStds.length > 0) {
+        <table class="w-full table border-2 rounded overflow-hidden">
+          <thead class="bg-udes-blue-700 text-white">
+            <th class="border border-white">Grupo</th>
+            <th class="border border-white">Materia</th>
+            <th class="border border-white">Semestre</th>
+            <th class="border border-white">Créditos</th>
+            <th class="border border-white">Def. Final</th>
+            <th class="border border-white">Aprobado</th>
+          </thead>
+          <tbody>
+            @for (item of semesterStds; track idx; let idx = $index) {
+              <tr class="text-center">
+                <td class="border border-gray-300">
+                  {{ item.subjectGroup.code }}
+                </td>
+                <td class="border border-gray-300">
+                  {{ item.subjectGroup.subject.name }}
+                </td>
+                <td class="border border-gray-300">
+                  {{ item.subjectGroup.subject.semester }}
+                </td>
+                <td class="border border-gray-300">
+                  {{ item.subjectGroup.subject.credits }}
+                </td>
+                <td class="border border-gray-300">
+                  {{
+                    (item.p1 * 0.3 + item.p2 * 0.3 + item.p3 * 0.4).toFixed(2)
+                  }}
+                </td>
+                <td class="border border-gray-300">
+                  {{
+                    item.p1 * 0.3 + item.p2 * 0.3 + item.p3 * 0.4 >= 3.0
+                      ? "Si"
+                      : "No"
+                  }}
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,7 @@
+<button
+  (click)="navTo(item().navTo)"
+  class="w-full h-20 bg-white rounded shadow shadow-udes-blue-800 text-udes-blue-800 hover:bg-udes-blue-800 hover:text-white transition-colors"
+>
+  <i class="fa fa-2x" [ngClass]="item().icon"></i>
+  <p>{{ item().text }}</p>
+</button>

@@ -1,0 +1,49 @@
+<section
+  class="flex flex-col gap-5 justify-between bg-white shadow shadow-udes-gray-600 w-full p-5 rounded"
+>
+  <div class="flex gap-2 w-full border rounded overflow-hidden">
+    <div class="h-16 w-1.5 bg-udes-blue-500"></div>
+    <div class="py-2">
+      <p class="text-udes-blue-500 text-xl">Recuerde:</p>
+      <p>
+        La definitiva es un valor aproximado hasta que no se haya digitado el
+        100% de las notas del grupo.
+      </p>
+    </div>
+  </div>
+
+  <table class="w-full table border-2 rounded overflow-hidden">
+    <thead class="bg-udes-blue-700 text-white">
+      <th class="border border-white">Grupo</th>
+      <th class="border border-white">Materia</th>
+      <th class="border border-white">Semestre</th>
+      <th class="border border-white">Créditos</th>
+      <th class="border border-white">P1 / 30%</th>
+      <th class="border border-white">P2 / 30%</th>
+      <th class="border border-white">Examen / 40%</th>
+      <th class="border border-white">Def. Final</th>
+    </thead>
+    <tbody>
+      @for (item of stdScores; track idx; let idx = $index) {
+        <tr class="text-center">
+          <td class="border border-gray-300">{{ item.subjectGroup.code }}</td>
+          <td class="border border-gray-300">
+            {{ item.subjectGroup.subject.name }}
+          </td>
+          <td class="border border-gray-300">
+            {{ item.subjectGroup.subject.semester }}
+          </td>
+          <td class="border border-gray-300">
+            {{ item.subjectGroup.subject.credits }}
+          </td>
+          <td class="border border-gray-300">{{ item.p1 }}</td>
+          <td class="border border-gray-300">{{ item.p2 }}</td>
+          <td class="border border-gray-300">{{ item.p3 }}</td>
+          <td class="border border-gray-300">
+            {{ (item.p1 * 0.3 + item.p2 * 0.3 + item.p3 * 0.4).toFixed(2) }}
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>
