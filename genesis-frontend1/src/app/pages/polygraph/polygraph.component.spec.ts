@@ -8,9 +8,8 @@ describe('PolygraphComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PolygraphComponent]
-    })
-    .compileComponents();
+      imports: [PolygraphComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PolygraphComponent);
     component = fixture.componentInstance;

@@ -1,0 +1,38 @@
+<section
+  class="flex flex-col gap-5 justify-between bg-white shadow shadow-udes-gray-600 w-full p-5 rounded"
+>
+  <h2 class="text-2xl">Horario de Clase</h2>
+
+  <table class="w-full table border-2 rounded overflow-hidden">
+    <thead class="bg-udes-blue-700 text-white">
+      <th class="border border-white">Hora/Día</th>
+      <th class="border border-white">Lunes</th>
+      <th class="border border-white">Martes</th>
+      <th class="border border-white">Miércoles</th>
+      <th class="border border-white">Jueves</th>
+      <th class="border border-white">Viernes</th>
+      <th class="border border-white">Sábado</th>
+    </thead>
+    <tbody class="text-center">
+      @for (slot of timeSlots; track idx; let idx = $index) {
+        <tr class="border border-gray-300">
+          <td class="border border-gray-300">{{ slot }}</td>
+          @for (
+            schedule of scheduleMatrix[idx];
+            track idx2;
+            let idx2 = $index
+          ) {
+            <td class="border border-gray-300">
+              @if (schedule) {
+                <p class="uppercase">
+                  <span class="font-bold">{{ schedule.code }}:</span>
+                  {{ schedule.subject }}
+                </p>
+              }
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../core/services/auth/auth.service';
 import { CurrencyFormatPipe } from '../../core/pipes/currency.format.pipe';
+import { SemesterService } from '../../core/services/semester/semester.service';
 
 @Component({
   selector: 'app-payment-receipts',
@@ -13,22 +13,24 @@ export class PaymentReceiptsComponent {
   preOrdinal: any = null;
   ordinal: any = null;
   postOrdinal: any = null;
-  semester: any = null
+  semester: any = null;
 
-  constructor(public authService: AuthService) {}
+  constructor(public semesterService: SemesterService) {}
 
   ngAfterViewInit() {
-    this.authService.getActiveSemester().subscribe((response: any) => {
+    this.semesterService.getActiveSemester().subscribe((response: any) => {
       const porcentage = 0.1;
-      this.ordinal = response.semesterValue
-      this.preOrdinal = response.semesterValue - (response.semesterValue * porcentage)
-      this.postOrdinal = response.semesterValue + (response.semesterValue * porcentage)
+      this.ordinal = response.semesterValue;
+      this.preOrdinal =
+        response.semesterValue - response.semesterValue * porcentage;
+      this.postOrdinal =
+        response.semesterValue + response.semesterValue * porcentage;
       this.semester = response;
     });
   }
 
   onPayButtonClicked() {
-    this.authService.paySemester(this.semester).subscribe();
+    this.semesterService.paySemester(this.semester).subscribe();
     this.semester.paid = true;
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../../core/services/auth/auth.service';
+import { SemesterService } from '../../../core/services/semester/semester.service';
 
 @Component({
   selector: 'app-academic-information',
@@ -13,10 +13,10 @@ export class AcademicInformationComponent {
   average = 0;
   payed = false;
 
-  constructor(public authService: AuthService) {}
+  constructor(public semesterService: SemesterService) {}
 
   ngAfterViewInit(): void {
-    this.authService.getActiveSemester().subscribe((res: any) => {
+    this.semesterService.getActiveSemester().subscribe((res: any) => {
       this.semester = res.semester ?? 0;
       this.average = res.average ?? 0;
       this.payed = res.paid ?? false;

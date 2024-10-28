@@ -8,9 +8,8 @@ describe('PdgdocumentsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PdgdocumentsComponent]
-    })
-    .compileComponents();
+      imports: [PdgdocumentsComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PdgdocumentsComponent);
     component = fixture.componentInstance;

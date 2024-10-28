@@ -13,6 +13,7 @@ export class DashboardComponent {
   sections: sectionInfo[] = [
     new sectionInfo('Documentos Pendientes', 'fa-files-o', 'pdgdocuments'),
     new sectionInfo('Plan de Estudio', 'fa-sitemap', 'curriculum'),
+    new sectionInfo('Horario', 'fa-calendar', 'schedule'),
     new sectionInfo('Notas', 'fa-check', 'stdscores'),
     new sectionInfo('Poligrafo', 'fa-list', 'polygraph'),
     new sectionInfo('Recibo de Matricula', 'fa-wpforms', 'payment_receipts'),

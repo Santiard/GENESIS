@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../core/services/auth/auth.service';
+import { GroupSemesterService } from '../../core/services/group-semester/group.semester.service';
 
 @Component({
   selector: 'app-stdscores',
@@ -11,11 +12,14 @@ import { AuthService } from '../../core/services/auth/auth.service';
 export class StdscoresComponent {
   stdScores: any[] = [];
 
-  constructor(public authService: AuthService) {}
+  constructor(
+    public authService: AuthService,
+    public groupSemesterService: GroupSemesterService,
+  ) {}
 
   ngOnInit() {
     this.authService.isLogged();
-    this.authService.getStdScores().subscribe((res: any) => {
+    this.groupSemesterService.getStdScores().subscribe((res: any) => {
       this.stdScores = res;
     });
   }
