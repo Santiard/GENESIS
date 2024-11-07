@@ -24,7 +24,6 @@ export class LoginComponent {
     if (this.authService.account != null) {
       this.router.navigate(['dashboard']);
     }
-    this.login();
   }
 
   login() {
