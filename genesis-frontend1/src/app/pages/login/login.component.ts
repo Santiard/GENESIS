@@ -12,8 +12,8 @@ import { FormsModule } from '@angular/forms';
   styles: ``,
 })
 export class LoginComponent {
-  code = '';
-  password = '';
+  code = '02210131021';
+  password = '123';
 
   constructor(
     private router: Router,
@@ -24,6 +24,7 @@ export class LoginComponent {
     if (this.authService.account != null) {
       this.router.navigate(['dashboard']);
     }
+    this.login();
   }
 
   login() {

@@ -38,4 +38,16 @@ export class SemesterService {
       params: { id: semester.id },
     });
   }
+
+  addAvailableCredits(semesterId: number, credits: number) {
+    return this.http.get(`${this.semester}/add_available_credits`, {
+      params: { id: semesterId, credits: credits },
+    });
+  }
+
+  removeAvailableCredits(semesterId: number, credits: number) {
+    return this.http.get(`${this.semester}/remove_available_credits`, {
+      params: { id: semesterId, credits: credits },
+    });
+  }
 }

@@ -20,4 +20,12 @@ interface SemesterRepository: JpaRepository<Semester, Long> {
     @Modifying
     @Query("UPDATE Semester s SET s.paid = true WHERE s.id = :id")
     fun paySemester(id: Long)
+
+    @Modifying
+    @Query("UPDATE Semester s SET s.availableCredits = s.availableCredits + :credits, s.usedCredits = s.usedCredits - :credits WHERE s.id = :id")
+    fun addAvailableCredits(id: Long, credits: Int)
+
+    @Modifying
+    @Query("UPDATE Semester s SET s.availableCredits = s.availableCredits - :credits, s.usedCredits = s.usedCredits + :credits WHERE s.id = :id")
+    fun removeAvailableCredits(id: Long, credits: Int)
 }

@@ -1,0 +1,15 @@
+<div class="p-2 bg-udes-gray-200 rounded shadow">
+  <div class="flex justify-between">
+    <p><span class="font-bold">{{subjectSchedule()[0].group.code}}</span> {{subjectSchedule()[0].group.subject.name}}</p>
+    <p><span>cred:</span>{{subjectSchedule()[0].group.subject.credits}} <span>| sem:</span> {{subjectSchedule()[0].group.subject.semester}}</p>
+  </div>
+  @for(item of subjectSchedule(); track idx; let idx = $index){
+    <p>{{item.dayOfWeek | codeToDay}}, {{item.startTime | codeToHour}}</p>
+  }
+  <p><span class="font-bold">Fecha: </span>{{subjectSchedule()[0].group.startDate}} a {{subjectSchedule()[0].group.endDate}}</p>
+  @if(isEnrolling()){
+    <button class="bg-green-500 text-white rounded p-2" (click)="enroll()">Matricular</button>
+  } @else {
+    <button class="bg-red-600 text-white rounded p-2" (click)="unenroll()">Desmatricular</button>
+  }
+</div>

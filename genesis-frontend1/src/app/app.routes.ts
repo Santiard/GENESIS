@@ -7,6 +7,7 @@ import { StdscoresComponent } from './pages/stdscores/stdscores.component';
 import { PolygraphComponent } from './pages/polygraph/polygraph.component';
 import { CurriculumComponent } from './pages/curriculum/curriculum.component';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
+import { EnrollmentsComponent } from './pages/enrollments/enrollments.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -17,5 +18,6 @@ export const routes: Routes = [
   { path: 'polygraph', component: PolygraphComponent },
   { path: 'payment_receipts', component: PaymentReceiptsComponent },
   { path: 'schedule', component: ScheduleComponent },
+  { path: 'enrollments', component: EnrollmentsComponent },
   { path: '**', redirectTo: '' },
 ];

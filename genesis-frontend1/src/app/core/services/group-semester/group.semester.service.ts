@@ -38,4 +38,22 @@ export class GroupSemesterService {
       },
     );
   }
+
+  getAllSchedules() {
+    return this.http.get(`${this.groupSemester}/get_all_schedules`);
+  }
+
+  enroll(subjectGroup: any, semester: any) {
+    return this.http.post(`${this.groupSemester}/enroll`, {
+      subjectGroup: subjectGroup,
+      semester: semester,
+    });
+  }
+
+  unenroll(subjectGroup: any, semester: any) {
+    return this.http.post(`${this.groupSemester}/unenroll`, {
+      subjectGroup: subjectGroup,
+      semester: semester,
+    });
+  }
 }
