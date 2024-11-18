@@ -7,4 +7,7 @@ import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
 @Repository
-interface SubjectGroupRepository: JpaRepository<SubjectGroup, Long> {}
+interface SubjectGroupRepository: JpaRepository<SubjectGroup, Long> {
+    @Query("SELECT sg FROM SubjectGroup sg WHERE sg.teacher.code = :code")
+    fun getSubjectGroupsByTeacher(code: String): List<SubjectGroup>
+}

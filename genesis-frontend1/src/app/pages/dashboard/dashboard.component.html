@@ -2,11 +2,19 @@
   <div
     class="grid grid-cols-3 bg-white shadow shadow-udes-gray-600 w-[60%] gap-8 p-5 rounded"
   >
-    @for (item of sections; track idx; let idx = $index) {
-      <app-dashboard-button [item]="item" />
+    @if(authService.isTeacher){
+      @for (item of teacherSections; track idx; let idx = $index) {
+        <app-dashboard-button [item]="item" />
+      }
+    } @else {
+      @for (item of studentSections; track idx; let idx = $index) {
+        <app-dashboard-button [item]="item" />
+      }
     }
   </div>
-  <div class="w-[40%]">
-    <app-academic-information />
-  </div>
+  @if (!authService.isTeacher) {
+    <div class="w-[40%]">
+      <app-academic-information />
+    </div>
+  }
 </section>

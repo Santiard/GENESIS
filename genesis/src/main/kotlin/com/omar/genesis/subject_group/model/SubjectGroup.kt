@@ -1,5 +1,6 @@
 package com.omar.genesis.subject_group.model
 
+import com.omar.genesis.account_teacher.model.AccountTeacher
 import com.omar.genesis.subject.model.Subject
 import jakarta.persistence.*
 import java.time.LocalDate
@@ -9,6 +10,10 @@ data class SubjectGroup(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
+
+    @ManyToOne
+    @JoinColumn()
+    var teacher: AccountTeacher? = null,
 
     @ManyToOne
     @JoinColumn(nullable = false)

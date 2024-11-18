@@ -8,6 +8,7 @@ import { PolygraphComponent } from './pages/polygraph/polygraph.component';
 import { CurriculumComponent } from './pages/curriculum/curriculum.component';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { EnrollmentsComponent } from './pages/enrollments/enrollments.component';
+import { TeacherGroupsComponent } from './pages/teacher-groups/teacher-groups.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,5 +20,6 @@ export const routes: Routes = [
   { path: 'payment_receipts', component: PaymentReceiptsComponent },
   { path: 'schedule', component: ScheduleComponent },
   { path: 'enrollments', component: EnrollmentsComponent },
+  { path: 'teacher-groups', component: TeacherGroupsComponent },
   { path: '**', redirectTo: '' },
 ];

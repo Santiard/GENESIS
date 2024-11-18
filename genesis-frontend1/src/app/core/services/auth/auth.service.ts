@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private accountProgram = 'http://localhost:8080/account_program';
   account: any;
+  isTeacher: boolean = false;
 
   constructor(
     private http: HttpClient,

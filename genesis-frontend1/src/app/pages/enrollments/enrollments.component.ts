@@ -14,6 +14,7 @@ export class EnrollmentsComponent {
   semester: any = null;
   userSubjects: any[] = [];
   subjects: any[] = [];
+
   constructor(
     private semesterService: SemesterService,
     private groupSemesterService: GroupSemesterService,
@@ -88,7 +89,7 @@ export class EnrollmentsComponent {
     for (let userSubject of this.userSubjects) {
       let leave = false;
       for (let value of userSubject) {
-        const endTime = value.startTime + value.numberHours - 1;
+        const endTime = value.startTime + value.numberHours;
         console.log('Schedule dayOfWeek', value.dayOfWeek);
         console.log('Schedule startTimes', value.startTime);
         console.log('Schedule endTimes', endTime);

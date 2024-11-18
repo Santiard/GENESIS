@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { DashboardButtonComponent } from '../../layouts/buttons/dashboard-button/dashboard-button.component';
 import { AcademicInformationComponent } from '../../layouts/tables/academic-information/academic-information.component';
+import { AccountTeacherService } from '../../core/services/account-teacher/account.teacher.service';
+import { AuthService } from '../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +12,7 @@ import { AcademicInformationComponent } from '../../layouts/tables/academic-info
   styles: ``,
 })
 export class DashboardComponent {
-  sections: sectionInfo[] = [
+  studentSections: sectionInfo[] = [
     new sectionInfo('Documentos Pendientes', 'fa-files-o', 'pdgdocuments'),
     new sectionInfo('Matrícula', 'fa-address-book', 'enrollments'),
     new sectionInfo('Plan de Estudio', 'fa-sitemap', 'curriculum'),
@@ -19,6 +21,12 @@ export class DashboardComponent {
     new sectionInfo('Poligrafo', 'fa-list', 'polygraph'),
     new sectionInfo('Recibo de Matricula', 'fa-wpforms', 'payment_receipts'),
   ];
+
+  teacherSections: sectionInfo[] = [
+    new sectionInfo('Grupos', 'fa-users', 'teacher-groups'),
+  ];
+
+  constructor(public authService: AuthService) {}
 }
 
 export class sectionInfo {

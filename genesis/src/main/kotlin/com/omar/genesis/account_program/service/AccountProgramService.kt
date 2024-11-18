@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class AccountProgramService(private val repository: AccountProgramRepository) {
+
     fun login(code: String, password: String): AccountProgram?{
         return repository.login(code, password)
     }
